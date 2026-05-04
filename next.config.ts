@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const nextConfig: NextConfig = {
-  // Native Swiss Ephemeris bindings must load from node_modules at runtime, not webpack.
   serverExternalPackages: ["@swisseph/node", "@swisseph/core"],
 };
 
