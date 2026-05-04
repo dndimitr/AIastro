@@ -1,6 +1,7 @@
 "use client";
 
 import { Settings } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -93,6 +94,17 @@ export default function SettingsPage() {
               <code className="rounded bg-white/10 px-1">.env.example</code>.
             </p>
           )}
+        </CardContent>
+      </Card>
+
+      <Card className="border-[#D4AF37]/25 bg-[#12101f]/72 backdrop-blur-md">
+        <CardContent className="space-y-3 p-4">
+          <Link
+            href="/dashboard"
+            className="block rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-3 text-center text-sm font-medium text-[#D4AF37] hover:bg-[#D4AF37]/18"
+          >
+            Отвори потребителско табло
+          </Link>
         </CardContent>
       </Card>
 
