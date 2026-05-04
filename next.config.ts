@@ -15,4 +15,12 @@ const withPWA = withPWAInit({
   },
 });
 
-export default withPWA(nextConfig);
+// @ducanh2912/next-pwa registers a `webpack` hook even when PWA is disabled in dev.
+// Next.js 16 defaults `next dev` to Turbopack and errors if any webpack config exists.
+// Bolt often runs `npx next dev` (no --webpack): export bare config for dev/start so Turbopack works.
+// Apply PWA only during `next build` (see npm run build → next build --webpack).
+const isNextBuild =
+  process.argv.includes("build") ||
+  process.env.npm_lifecycle_event === "build";
+
+export default isNextBuild ? withPWA(nextConfig) : nextConfig;
